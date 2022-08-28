@@ -1,0 +1,17 @@
+<h1> Flight Booker </h1>
+<%= render 'form' %>
+
+<%# @flights.each do |flight|%>
+  <%# flight.departure_airport.code %>
+<%# end%>
+
+<%# <% @search_results.each do |result|%>
+  <%#result %>
+<%# end%>
+
+<%= @search_results %> <br><br>
+
+
+<% @matching_flights.each do |flight|%>
+  <%= flight.departure_airport_id %>
+<% end %>
