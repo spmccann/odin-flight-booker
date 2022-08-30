@@ -1,11 +1,10 @@
 <% if @matching_flights.count.positive? %>
-  <%= form_with  do |f| %>
-    <% num = 1 %>
-    <% @matching_flights.each do |flight|%>
-      <%= f.radio_button :flight, "radio#{num}" %> 
-      <%= f.label :flight_option, "#{flight.duration/60/60} hrs flight, #{flight.departure_airport.code} to #{flight.arrival_airport.code} leaving at #{flight.datetime}", for: "flight_radio#{num}" %> <br> <br>
-      <% num += 1 %>
+  <%= form_with url: "/bookings/new", method: :get do |f| %>
+    <% @matching_flights.order(:duration).each do |flight|%>
+      <%= f.radio_button :flight, flight.id %> 
+      <%= f.label :flight_option, "#{flight.duration/60/60} hrs flight, #{flight.departure_airport.code} to #{flight.arrival_airport.code} leaving at #{flight.datetime}", for: "flight_#{flight.id}" %> <br> <br>
     <% end %>
+    <%= f.hidden_field :num_tickets, value: @num_tickets %>
     <%= f.submit 'Select Flight' %>
   <% end%>
 <% else %>

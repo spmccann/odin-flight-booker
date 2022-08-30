@@ -5,8 +5,8 @@
   <%= f.label :arrival_code, 'Arrival Airport' %> <br>
   <%= f.collection_select :arrival_code, Airport.order(:code), :code, :code, prompt: ''  %> <br><br>
 
-  <%= f.label :date, 'Date d/m/y' %> <br>
-  <%= f.collection_select :date, Flight.select(:datetime).group("Date(datetime)"), :flight_datetime_formatted, :flight_datetime_formatted, prompt: '' %> <br><br>
+  <%= f.label :date, 'Date' %> <br>
+  <%= f.collection_select :date, Flight.select(:datetime).group("Date(datetime)"), :flight_datetime_formatted, :flight_datetime_format, prompt: '' %> <br><br>
 
   <%= f.label :num_tickets, 'Passengers' %> <br>
   <%= f.select :num_tickets, [1, 2, 3, 4] %> <br><br>
