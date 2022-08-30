@@ -1,14 +1,6 @@
 <h1> Flight Booker </h1>
 <%= render 'search_form' %>
 
-<br><br> <br><br><br>
+<br> ----------------------------- <br> <br>
 
-
-
-<%= form_with do |f| %>
-  <% @matching_flights.each do |flight|%>
-    <%= f.radio_button :flight, 'flight'%> 
-    <%= f.label :flight_option, "#{flight.departure_airport.code} to #{flight.arrival_airport.code} leaving at #{flight.datetime}" %> <br> <br>
-  <% end %>
-  <%= f.submit 'Select Flight' %>
-<% end%>
+<%= render 'select_form' %>
