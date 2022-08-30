@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Airport.delete_all
-#Flight.delete_all
+# Flight.delete_all
 
 # Airport.create!(code: 'ATL', name: 'Hartsfield Jackson Atlanta International Airport')
 # Airport.create(code: 'DFW', name: 'Dallas/Fort Worth International Airport')
@@ -50,3 +50,11 @@
 # Flight.create(departure_airport: Airport.find_by(code: 'BOS'), arrival_airport: Airport.find_by(code: 'SLC'), datetime: DateTime.new(2022, 9, 1, 4), duration: 43_760)
 # Flight.create(departure_airport: Airport.find_by(code: 'PHL'), arrival_airport: Airport.find_by(code: 'BWI'), datetime: DateTime.new(2022, 9, 1, 4), duration: 43_760)
 # Flight.create(departure_airport: Airport.find_by(code: 'TPA'), arrival_airport: Airport.find_by(code: 'SAN'), datetime: DateTime.new(2022, 9, 1, 4), duration: 43_760)
+
+airports = %w[ATL DFW DEN ORD LAX CLT MCO LAS PHX MIA SEA IAH JFK EWR FLL
+              MSP SFO DTW BOS SLC PHL BWI TPA SAN LGA MDW BNA IAD]
+
+200.times do
+  Flight.create(departure_airport: Airport.find_by(code: airports.sample), arrival_airport: Airport.find_by(code: airports.sample),
+                datetime: DateTime.new(2022, 10, rand(10..19), rand(0..23)), duration: rand(3600..20_000))
+end

@@ -1,0 +1,15 @@
+<%= form_with url: '/flights', method: :get do |f| %>
+  <%= f.label :departure_code, 'Departure Airport' %> <br>
+  <%= f.collection_select :departure_code, Airport.order(:code), :code, :code, prompt: 'Departure Airport'  %> <br><br>
+
+  <%= f.label :arrival_code, 'Arrival Airport' %> <br>
+  <%= f.collection_select :arrival_code, Airport.order(:code), :code, :code, prompt: 'Arrival Airport'  %> <br><br>
+
+  <%= f.label :date, 'Date' %> <br>
+  <%= f.collection_select :date, Flight.select(:datetime), :datetime, :flight_datetime_formatted, prompt: 'Select Date' %> <br><br>
+
+  <%= f.label :num_tickets, 'Passengers' %> <br>
+  <%= f.select :num_tickets, [1, 2, 3, 4] %> <br><br>
+
+  <%= f.submit 'Find Flights' %>
+<% end%>
