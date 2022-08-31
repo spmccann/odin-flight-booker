@@ -6,15 +6,4 @@ Departure Time: <%= @flight.datetime %> <br>
 Flight Duration: <%= @flight.duration/60/60 %> hours <br>
 
 <h3> Passenger Information </h3>
-<%= form_with do |f|%>
-  <% params[:num_tickets].to_i.times do |t| %>
-    <%= f.fields_for do |sub_form| %>
-      <p>Passenger <%= t %> </p>
-      <%= sub_form.label :name, "Name:" %> <br>
-      <%= sub_form.text_field :name %> <br > <br>
-      <%= sub_form.label :email, "Email:" %> <br>
-      <%= sub_form.text_field :email %> <br> <br>
-    <% end %>
-  <% end %>
-  <%= f.submit "Submit and Continue"%>
-<% end %>
+<%= render 'booking_form'%>
