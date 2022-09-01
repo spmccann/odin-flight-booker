@@ -1,1 +1,11 @@
 <h1>Congrats on booking your flight! </h1>
+<h3> Flight details </h3>
+Flight id: <%= @booking.flight_id%> <br>
+Departure Airport: <%= @booking.flight.departure_airport.code %> <br>
+Arrival Airport: <%= @booking.flight.arrival_airport.code %> <br>
+Date: <%= @booking.flight.datetime %> <br>
+Duration: <%= @booking.flight.duration / 60 / 60%> hours <br> <br>
+<h3> Passenger details </h3>
+<% @booking.passengers.each do |b| %>
+  Name: <%= b.name %> <br> Email: <%= b.email %> <br> <br>
+<% end %>

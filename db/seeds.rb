@@ -38,10 +38,10 @@
 # Airport.create(code: 'BNA', name: 'Nashville International Airport')
 # Airport.create(code: 'IAD', name: 'Washington Dulles International Airport')
 
-airports = %w[ATL DFW DEN ORD LAX CLT MCO LAS PHX MIA SEA IAH JFK EWR FLL
-               MSP SFO DTW BOS SLC PHL BWI TPA SAN LGA MDW BNA IAD]
+# airports = %w[ATL DFW DEN ORD LAX CLT MCO LAS PHX MIA SEA IAH JFK EWR FLL
+#                MSP SFO DTW BOS SLC PHL BWI TPA SAN LGA MDW BNA IAD]
 
-1000.times do
-  Flight.create!(departure_airport: Airport.find_by(code: airports.sample), arrival_airport: Airport.find_by(code: airports.sample),
-                datetime: DateTime.new(2022, 10, rand(10..13), rand(0..23)), duration: rand(3600..20_000))
-end
+# 1000.times do
+#   Flight.create!(departure_airport: Airport.find_by(code: airports.sample), arrival_airport: Airport.find_by(code: airports.sample),
+#                 datetime: DateTime.new(2022, 10, rand(10..13), rand(0..23)), duration: rand(3600..20_000))
+# end

@@ -1,7 +1,7 @@
 class Flight < ApplicationRecord
   belongs_to :departure_airport, class_name: 'Airport'
   belongs_to :arrival_airport, class_name: 'Airport'
-  belongs_to :booking
+  has_many :booking, class_name: 'Booking'
 
   scope :departure, lambda { |search_params|
                       where('departure_airport_id = ?', Airport.find_by(code: search_params[:departure_code]))
