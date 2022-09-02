@@ -7,4 +7,5 @@ Flight Duration: <%= @flight.duration/60/60 %> hours <br>
 Flight Id: <%= @flight.id %> <br>
 
 <h3> Passenger Information </h3>
-<%= render 'booking_form'%>
+<%= render 'booking_form'%> <br>
+<%= link_to 'Start Over', root_path %>
